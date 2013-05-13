@@ -18,10 +18,10 @@
 		</span>
 
 	</ul>
-		<form action="insertdata.php" method="POST" class="well span8">
+		<form action="insertdata.php" method="POST" class="well span8" id="add_form" enctype="multipart/form-data">
 			<legend>Add data</legend>
 			
-			<table>
+			<table id="table">
 					<tr>
 						<td>
 							<span class="span_slideno">
@@ -79,7 +79,7 @@
 			  		<td>
 			  			<span class="span_diagnosis">
 			    			<span class="input-append">
-								<input class="span3" id="diagnosis" type="text">
+								<input class="span3" id="diagnosis" name="diagnosis" type="text">
 								<span class="add-on">OSAnecrosis 18%</span>
 							</span>
 						</span>
@@ -95,7 +95,7 @@
 			  		<td>
 			  			<span class="span_date_biopsy">
 			    			<span class="input-append">
-								<input class="span3" id="date_biopsy" type="text">
+								<input class="span3" id="date_biopsy" name="date_biopsy" type="text">
 								<span class="add-on">2013-05-12</span>
 							</span>
 						</span>
@@ -281,8 +281,18 @@
 				</tr>
 
 			</table>
-
-				<center><input type="button" id="btnadd" value="เพิ่มข้อมูล" class="btn btn-primary "/></center>
+			<p><a class="btn" href="#" id="add_picture"><i class="icon-plus-sign"></i> picture</a></p>
+			<p><input type="file" title="Browse Picture" class="picture" name="picture[]" onchange="ajax_upload();"></p>
+			<p><input type="file" title="Browse Picture" class="picture" name="picture[]" onchange="ajax_upload();"></p>
+			<p><input type="file" title="Browse Picture" class="picture" name="picture[]" onchange="ajax_upload();"></p>
+			<input type="file" name="fileUpload[]">
+			<input type="file" name="fileUpload[]">
+			<input type="file" name="fileUpload[]">
+			<input type="file" name="fileUpload[]">
+			<input type="file" name="fileUpload[]">
+			<input type="hidden" value="6" name="status">
+			<input type="submit"/>
+			<center><input type="button" id="btnadd" value="เพิ่มข้อมูล" class="btn btn-primary "/></center>
 		</form>
 
 
@@ -303,15 +313,16 @@
 
 	<script type="text/javascript" src="../jQuery/jquery.js"></script>
 	<script type="text/javascript" src="../jQuery/jquery-ui.js"></script>
+	<script type="text/javascript" src="../bootstrap/js/bootstrap.file-input.js"></script>
 	<script type="text/javascript" src="../js/btnLogoutBack.js"></script>
 	<script type="text/javascript">
    		 $( "#date_biopsy" ).datepicker({ dateFormat: 'yy-mm-dd' });
+   		 
    		 $("#catagory").change(function()
-   		 {
-   		 	
+   		 {   		 	
    		 	select_sub_catagory();
-
    		 });
+
 		$("#sub_catagory").change(function(){
 			show_other();
 		});
@@ -332,13 +343,17 @@
 			var sub_catagory_other = $("#sub_catagory_other").val();
 			var region_of_lesion = $("#region_of_lesion").val();
 			var name = $("#name").val();
+			//var file_data = $("#picture1").prop("files")[0];
 			//alert(username+" "+hn+" "+slideno+" "+diagnosis+" "+date_biopsy+" "+age+" "+sex+" "+site+" "+location+" "+catagory+" "+catagory_other+" "+sub_catagory+" "+sub_catagory_other);
-			alert(sub_catagory_other);
+			//alert(sub_catagory_other);
 			$.ajax
 			({
+				
 				type: 'POST',
 				url:'insertdata.php',
-				data:'username='+username+'&hn='+hn+'&slideno='+slideno+'&diagnosis='+diagnosis+'&date_biopsy='+date_biopsy+'&age='+age+'&sex='+sex+'&site='+site+'&location='+location+'&catagory='+catagory+'&catagory_other='+catagory_other+'&sub_catagory='+sub_catagory+'&sub_catagory_other='+sub_catagory_other+'&region_of_lesion='+region_of_lesion+'&name='+name+'&status='+'6',
+				contentType:'multipart/form-data',
+				//data:'username='+username+'&hn='+hn+'&slideno='+slideno+'&diagnosis='+diagnosis+'&date_biopsy='+date_biopsy+'&age='+age+'&sex='+sex+'&site='+site+'&location='+location+'&catagory='+catagory+'&catagory_other='+catagory_other+'&sub_catagory='+sub_catagory+'&sub_catagory_other='+sub_catagory_other+'&region_of_lesion='+region_of_lesion+'&name='+name+'&status='+'6'+'&file='+file_data,
+				data:$("#add_form").serialize(),
 				success: function(data)
 				{
 					removeClassError();
@@ -552,6 +567,10 @@
 	  				$("#sub_catagory").html(sub_catagory[5]);show_other();
 	  				break;
 	  		}		
+   	}
+   	function ajax_upload()
+   	{
+
    	}
 	</script>
 

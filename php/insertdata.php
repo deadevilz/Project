@@ -1,8 +1,11 @@
 <?php
 	require('config.php');
+	for($i=0;$i<count($_FILES["fileUpload"]["name"]);$i++)
+		echo $_FILES["fileUpload"]["name"][$i];
+
 	if(isset($_POST['slideno']))
 	{
-		
+		echo var_dump($_FILES);
 		$slideno = mysql_real_escape_string($_POST['slideno']);
 		$diagnosis = mysql_real_escape_string($_POST['diagnosis']);
 		$location = mysql_real_escape_string($_POST['location']);
