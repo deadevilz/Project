@@ -18,7 +18,9 @@
 		</span>
 
 	</ul>
-		<form action="insertdata.php" method="POST" class="well span8" id="add_form" enctype="multipart/form-data">
+		<form action="insertdata.php" method="POST" class="well span8" id="add_form"  name="add_form" enctype="multipart/form-data">
+			<iframe id="iframe_target" name="iframe_target" src="#" style="width:0;height:0;border:0px solid #fff;"></iframe>
+
 			<legend>Add data</legend>
 			
 			<table id="table">
@@ -281,19 +283,23 @@
 				</tr>
 
 			</table>
-			<p><a class="btn" href="#" id="add_picture"><i class="icon-plus-sign"></i> picture</a></p>
-			<p><input type="file" title="Browse Picture" class="picture" name="picture[]" onchange="ajax_upload();"></p>
-			<p><input type="file" title="Browse Picture" class="picture" name="picture[]" onchange="ajax_upload();"></p>
-			<p><input type="file" title="Browse Picture" class="picture" name="picture[]" onchange="ajax_upload();"></p>
-			<input type="file" name="fileUpload[]">
-			<input type="file" name="fileUpload[]">
-			<input type="file" name="fileUpload[]">
-			<input type="file" name="fileUpload[]">
-			<input type="file" name="fileUpload[]">
 			<input type="hidden" value="6" name="status">
-			<input type="submit"/>
+
+			<p>
+				<a class="btn" href="#" id="add_picture"><i class="icon-plus-sign"></i> picture</a>
+				<a class="btn" href="#" id="delete_picture"><i class="icon-minus-sign"></i> picture</a>
+			</p>
+			
+			<p><input type="file" title="Browse Picture" class="picture" id="picture1" /></p>
+			<p><input type="file" title="Browse Picture" class="picture" id="picture2" /></p>
+			<p><input type="file" title="Browse Picture" class="picture" id="picture3" /></p>
+			<p><input type="file" title="Browse Picture" class="picture" id="picture3" /></p>
+			<p><input type="file" title="Browse Picture" class="picture" id="picture3" /></p>
+
 			<center><input type="button" id="btnadd" value="เพิ่มข้อมูล" class="btn btn-primary "/></center>
 		</form>
+
+		
 
 
 	<ul>
@@ -316,8 +322,28 @@
 	<script type="text/javascript" src="../bootstrap/js/bootstrap.file-input.js"></script>
 	<script type="text/javascript" src="../js/btnLogoutBack.js"></script>
 	<script type="text/javascript">
-   		 $( "#date_biopsy" ).datepicker({ dateFormat: 'yy-mm-dd' });
+   		 $(window).load(function() {
+      		$(".picture").css("display", "none");
+		});
+   		
+   		 $("#add_picture").click(function()
+   		 {
    		 
+   		 	$(".picture:hidden").first().css("display", "");
+   		 	$(".picture:hidden").first().css("display", "");
+   		 	
+   		 });
+   		 $("#delete_picture").click(function()
+   		 {
+   		 	$(".picture:visible").last().css("display", "none");
+   		 	$(".picture:visible").last().css("display", "none");
+   		 	
+   		 	
+   		 	
+   		 });
+
+
+   		 $("#date_biopsy").datepicker({ dateFormat: 'yy-mm-dd' });
    		 $("#catagory").change(function()
    		 {   		 	
    		 	select_sub_catagory();
@@ -326,65 +352,12 @@
 		$("#sub_catagory").change(function(){
 			show_other();
 		});
+
 		$("#btnadd").click(function(){
 			$("#status").html("กำลังทำการเพิ่มข้อมูล");
-			var username = $("#username").html();
-			var hn = $("#hn").val(); 
-			var slideno = $("#slideno").val();
-			var diagnosis = $("#diagnosis").val();
-			var date_biopsy = $("#date_biopsy").val();
-			var age = $("#age").val();
-			var sex = $("#sex").val();
-			var site = $("#site").val();
-			var location = $("#location").val();
-			var catagory = $("#catagory").val();
-			var catagory_other = $("#catagory_other").val();
-			var sub_catagory = $("#sub_catagory").val();
-			var sub_catagory_other = $("#sub_catagory_other").val();
-			var region_of_lesion = $("#region_of_lesion").val();
-			var name = $("#name").val();
-			//var file_data = $("#picture1").prop("files")[0];
-			//alert(username+" "+hn+" "+slideno+" "+diagnosis+" "+date_biopsy+" "+age+" "+sex+" "+site+" "+location+" "+catagory+" "+catagory_other+" "+sub_catagory+" "+sub_catagory_other);
-			//alert(sub_catagory_other);
-			$.ajax
-			({
-				
-				type: 'POST',
-				url:'insertdata.php',
-				contentType:'multipart/form-data',
-				//data:'username='+username+'&hn='+hn+'&slideno='+slideno+'&diagnosis='+diagnosis+'&date_biopsy='+date_biopsy+'&age='+age+'&sex='+sex+'&site='+site+'&location='+location+'&catagory='+catagory+'&catagory_other='+catagory_other+'&sub_catagory='+sub_catagory+'&sub_catagory_other='+sub_catagory_other+'&region_of_lesion='+region_of_lesion+'&name='+name+'&status='+'6'+'&file='+file_data,
-				data:$("#add_form").serialize(),
-				success: function(data)
-				{
-					removeClassError();
-					$('#status').html(data);
-					if(data=='ช่อง SLIDENO ไม่ได้ใส่ค่า')
-					{
-						$(".span_slideno").addClass("control-group error");
-						$("#strong_slideno").addClass("control-label");
-						$("#slideno").focus();
-					}
-					if(data=='ช่อง HN ไม่ได้ใส่ค่า'||data=='ช่อง HN ใส่ค่าไม่ถูกต้อง')
-					{
-						$(".span_hn").addClass("control-group error");
-						$("#strong_hn").addClass("control-label");
-						$("#hn").focus();
-					}
-					if(data=='ช่อง NAME ไม่ได้ใส่ค่า')
-					{
-						$(".span_name").addClass("control-group error");
-						$("#strong_name").addClass("control-label");
-						$("#name").focus();
-					}
-					if(data=='การเพิ่มข้อมูลสำเร็จ')
-					{
-						clearData();
-					}
-
-				}
-			}).error(function(){
-					$('#status').html('server not responding');
-				});
+			add_form.action='insertdata.php'
+			add_form.target='iframe_target';
+			add_form.submit();	
 		});
 
    	function show_other()
@@ -568,10 +541,103 @@
 	  				break;
 	  		}		
    	}
-   	function ajax_upload()
+   	function ajax_insertdata()
    	{
+   		var username = $("#username").html();
+			var hn = $("#hn").val(); 
+			var slideno = $("#slideno").val();
+			var diagnosis = $("#diagnosis").val();
+			var date_biopsy = $("#date_biopsy").val();
+			var age = $("#age").val();
+			var sex = $("#sex").val();
+			var site = $("#site").val();
+			var location = $("#location").val();
+			var catagory = $("#catagory").val();
+			var catagory_other = $("#catagory_other").val();
+			var sub_catagory = $("#sub_catagory").val();
+			var sub_catagory_other = $("#sub_catagory_other").val();
+			var region_of_lesion = $("#region_of_lesion").val();
+			var name = $("#name").val();
 
+			//alert(username+" "+hn+" "+slideno+" "+diagnosis+" "+date_biopsy+" "+age+" "+sex+" "+site+" "+location+" "+catagory+" "+catagory_other+" "+sub_catagory+" "+sub_catagory_other);
+			//alert(sub_catagory_other);
+			$.ajax
+			({
+				
+				type: 'POST',
+				url:'insertdata.php',
+				//data:'username='+username+'&hn='+hn+'&slideno='+slideno+'&diagnosis='+diagnosis+'&date_biopsy='+date_biopsy+'&age='+age+'&sex='+sex+'&site='+site+'&location='+location+'&catagory='+catagory+'&catagory_other='+catagory_other+'&sub_catagory='+sub_catagory+'&sub_catagory_other='+sub_catagory_other+'&region_of_lesion='+region_of_lesion+'&name='+name+'&status='+'6'+'&file='+file_data,
+				data:$("#add_form").serialize(),
+				//data:data,
+				success: function(data)
+				{
+					removeClassError();
+					$('#status').html(data);
+					if(data=='ช่อง SLIDENO ไม่ได้ใส่ค่า')
+					{
+						$(".span_slideno").addClass("control-group error");
+						$("#strong_slideno").addClass("control-label");
+						$("#slideno").focus();
+					}
+					if(data=='ช่อง HN ไม่ได้ใส่ค่า'||data=='ช่อง HN ใส่ค่าไม่ถูกต้อง')
+					{
+						$(".span_hn").addClass("control-group error");
+						$("#strong_hn").addClass("control-label");
+						$("#hn").focus();
+					}
+					if(data=='ช่อง NAME ไม่ได้ใส่ค่า')
+					{
+						$(".span_name").addClass("control-group error");
+						$("#strong_name").addClass("control-label");
+						$("#name").focus();
+					}
+					if(data=='การเพิ่มข้อมูลสำเร็จ')
+					{
+						
+						clearData();
+					}
+
+				}
+			}).error(function(){
+					$('#status').html('server not responding');
+				});
+			
    	}
+   	function show_status(result)
+   	{	removeClassError();
+   		if(result=='1')
+   		{
+   			$("#status").html("ช่อง SLIDENO ไม่ได้ใส่ค่า");
+   			$(".span_slideno").addClass("control-group error");
+			$("#strong_slideno").addClass("control-label");
+			$("#slideno").focus();
+   		}
+   		else if(result=='2')
+   		{
+   			$("#status").html("ช่อง HN ไม่ได้ใส่ค่า");
+   			$(".span_hn").addClass("control-group error");
+			$("#strong_hn").addClass("control-label");
+			$("#hn").focus();
+   		}
+   		else if(result=='3')
+   		{
+   			$("#status").html("ช่อง NAME ไม่ได้ใส่ค่า");
+   			$(".span_name").addClass("control-group error");
+			$("#strong_name").addClass("control-label");
+			$("#name").focus();
+   		}
+   		else if(result=='9')
+   		{
+   			$("#status").html("การเพิ่มข้อมูลสำเร็จ");
+   			clearData();
+   		}
+   		else if(result=='10')
+   		{
+   			$("#status").html("การเพิ่มข้อมูลผิดพลาด");
+   		}
+   	}
+   
+
 	</script>
 
 </body>
