@@ -534,7 +534,7 @@
 		$("#btnadd").click(function(){
 			$("#status").html("กำลังทำการเพิ่มข้อมูล");
 			add_form.action='insertdata.php'
-			//add_form.target='iframe_target';
+			add_form.target='iframe_target';
 			add_form.submit();	
 		});
 
