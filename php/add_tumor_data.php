@@ -289,12 +289,173 @@
 				<a class="btn" href="#" id="add_picture"><i class="icon-plus-sign"></i> picture</a>
 				<a class="btn" href="#" id="delete_picture"><i class="icon-minus-sign"></i> picture</a>
 			</p>
+
+			<span class="picture">
+				
+					<input type="file" class="filestyle" data-buttonText="Find picture file 1"  accept="image/*" name="file_picture[]"/>
+				
+				<table>
+					<tr>
+						<td>
+							<strong>Catagory Picture 1</strong>
+						</td>
+						<td>
+							<select class="span2" name="picture_catagory[]" id="picture_catagory1">
+								<option value="Radiographic">Radiographic</option>
+					  			<option value="Photograph">Photograph</option>
+				  			</select>
+				 	 	</td>
+					</tr>
+				 	<tr>
+				 		<td>
+				  			<strong>Sub Catagory Picture 1&nbsp &nbsp &nbsp &nbsp</strong>
+				 	 	</td>
+				 	 	<td>
+					  		<select class="span2" name="sub_picture_catagory[]" id="sub_picture_catagory1">
+								<option value="XRAY">XRAY</option>
+						  		<option value="MRI">MRI</option>
+						  		<option value="Bone Scan">Bone Scan</option>
+						  		<option value="CT Chest">CT Chest</option>
+						  		<option value="CT">CT</option>
+					  		</select>
+				  		</td>
+				  	</tr>
+				</table>
+			</span>
+
+			<span class="picture">
+				<span>
+					<input type="file" class="filestyle" data-buttonText="Find picture file 2"  accept="image/*" name="file_picture[]"/>
+				</span>
+				<table>
+					<tr>
+						<td>
+							<strong>Catagory Picture 2</strong>
+						</td>
+						<td>
+							<select class="span2" name="picture_catagory[]" id="picture_catagory2">
+								<option value="Radiographic">Radiographic</option>
+						  		<option value="Photograph">Photograph</option>
+						  	</select>
+				 	 	</td>
+					</tr>
+				 	<tr>
+				 		<td>
+					  		<strong>Sub Catagory Picture 2&nbsp &nbsp &nbsp &nbsp</strong>
+					 	</td>
+				 	 	<td>
+						  	<select class="span2" name="sub_picture_catagory[]" id="sub_picture_catagory2">
+								<option value="XRAY">XRAY</option>
+						  		<option value="MRI">MRI</option>
+						  		<option value="Bone Scan">Bone Scan</option>
+						  		<option value="CT Chest">CT Chest</option>
+						  		<option value="CT">CT</option>
+						  	</select>
+				  		</td>
+				  </tr>
+				</table>
+			</span>
+
+			<span class="picture">
+				<span>
+					<input type="file" class="filestyle" data-buttonText="Find picture file 3"  accept="image/*" name="file_picture[]"/>
+				</span>
+				<table>
+					<tr>
+						<td>
+							<strong>Catagory Picture 3</strong>
+						</td>
+						<td>
+							<select class="span2" name="picture_catagory[]" id="picture_catagory3">
+								<option value="Radiographic">Radiographic</option>
+						  		<option value="Photograph">Photograph</option>
+						  	</select>
+				 	 	</td>
+					</tr>
+				 	<tr>
+				 		<td>
+					  		<strong>Sub Catagory Picture 3&nbsp &nbsp &nbsp &nbsp</strong>
+					 	</td>
+				 	 	<td>
+						  	<select class="span2" name="sub_picture_catagory[]" id="sub_picture_catagory3">
+								<option value="XRAY">XRAY</option>
+						  		<option value="MRI">MRI</option>
+						  		<option value="Bone Scan">Bone Scan</option>
+						  		<option value="CT Chest">CT Chest</option>
+						  		<option value="CT">CT</option>
+						  	</select>
+				  		</td>
+				  </tr>
+				</table>
+			</span>
 			
-			<p><input type="file" title="Browse Picture" class="picture" id="picture1" /></p>
-			<p><input type="file" title="Browse Picture" class="picture" id="picture2" /></p>
-			<p><input type="file" title="Browse Picture" class="picture" id="picture3" /></p>
-			<p><input type="file" title="Browse Picture" class="picture" id="picture3" /></p>
-			<p><input type="file" title="Browse Picture" class="picture" id="picture3" /></p>
+			<span class="picture">
+				<span>
+					<input type="file" class="filestyle" data-buttonText="Find picture file 4"  accept="image/*" name="file_picture[]"/>
+				</span>
+				<table>
+					<tr>
+						<td>
+							<strong>Catagory Picture 4</strong>
+						</td>
+						<td>
+							<select class="span2" name="picture_catagory[]" id="picture_catagory4">
+								<option value="Radiographic">Radiographic</option>
+						  		<option value="Photograph">Photograph</option>
+						  	</select>
+				 	 	</td>
+					</tr>
+				 	<tr>
+				 		<td>
+					  		<strong>Sub Catagory Picture 4&nbsp &nbsp &nbsp &nbsp</strong>
+					 	</td>
+				 	 	<td>
+						  	<select class="span2" name="sub_picture_catagory[]" id="sub_picture_catagory4">
+								<option value="XRAY">XRAY</option>
+						  		<option value="MRI">MRI</option>
+						  		<option value="Bone Scan">Bone Scan</option>
+						  		<option value="CT Chest">CT Chest</option>
+						  		<option value="CT">CT</option>
+						  	</select>
+				  		</td>
+				  </tr>
+				</table>
+			</span>
+
+			<span class="picture">
+				<span>
+					<input type="file" class="filestyle" data-buttonText="Find picture file 5"  accept="image/*" name="file_picture[]"/>
+				</span>
+				<table>
+					<tr>
+						<td>
+							<strong>Catagory Picture 5</strong>
+						</td>
+						<td>
+							<select class="span2" name="picture_catagory[]" id="picture_catagory5">
+								<option value="Radiographic">Radiographic</option>
+						  		<option value="Photograph">Photograph</option>
+						  	</select>
+				 	 	</td>
+					</tr>
+				 	<tr>
+				 		<td>
+					  		<strong>Sub Catagory Picture 5&nbsp &nbsp &nbsp &nbsp</strong>
+					 	</td>
+				 	 	<td>
+						  	<select class="span2" name="sub_picture_catagory[]" id="sub_picture_catagory5">
+								<option value="XRAY">XRAY</option>
+						  		<option value="MRI">MRI</option>
+						  		<option value="Bone Scan">Bone Scan</option>
+						  		<option value="CT Chest">CT Chest</option>
+						  		<option value="CT">CT</option>
+						  	</select>
+				  		</td>
+				  </tr>
+				</table>
+			</span>
+
+			
 
 			<center><input type="button" id="btnadd" value="เพิ่มข้อมูล" class="btn btn-primary "/></center>
 		</form>
@@ -319,27 +480,44 @@
 
 	<script type="text/javascript" src="../jQuery/jquery.js"></script>
 	<script type="text/javascript" src="../jQuery/jquery-ui.js"></script>
-	<script type="text/javascript" src="../bootstrap/js/bootstrap.file-input.js"></script>
+	<script type="text/javascript" src="../bootstrap/js/bootstrap-filestyle.min.js"></script>
 	<script type="text/javascript" src="../js/btnLogoutBack.js"></script>
 	<script type="text/javascript">
    		 $(window).load(function() {
       		$(".picture").css("display", "none");
 		});
    		
+   		var eq = 0;
    		 $("#add_picture").click(function()
-   		 {
-   		 
-   		 	$(".picture:hidden").first().css("display", "");
+   		 {	
+   		 	if(eq<5) eq++;
    		 	$(".picture:hidden").first().css("display", "");
    		 	
    		 });
+
+
    		 $("#delete_picture").click(function()
    		 {
+   		 	if(eq>0) eq--;
+   		 	$(":file").eq(eq).filestyle('clear');
    		 	$(".picture:visible").last().css("display", "none");
-   		 	$(".picture:visible").last().css("display", "none");
    		 	
-   		 	
-   		 	
+   		 });
+
+   		$("#picture_catagory1").change(function(){
+   		 	select_sub_catagory_picture1();
+   		 });
+   		$("#picture_catagory2").change(function(){
+   		 	select_sub_catagory_picture2();
+   		 });
+   		$("#picture_catagory3").change(function(){
+   		 	select_sub_catagory_picture3();
+   		 });
+   		$("#picture_catagory4").change(function(){
+   		 	select_sub_catagory_picture4();
+   		 });
+   		$("#picture_catagory5").change(function(){
+   		 	select_sub_catagory_picture5();
    		 });
 
 
@@ -356,7 +534,7 @@
 		$("#btnadd").click(function(){
 			$("#status").html("กำลังทำการเพิ่มข้อมูล");
 			add_form.action='insertdata.php'
-			add_form.target='iframe_target';
+			//add_form.target='iframe_target';
 			add_form.submit();	
 		});
 
@@ -636,7 +814,66 @@
    			$("#status").html("การเพิ่มข้อมูลผิดพลาด");
    		}
    	}
-   
+   function select_sub_catagory_picture1()
+   {
+   		$("#sub_picture_catagory1").children().remove();
+   		switch($("#picture_catagory1").val())
+   		{	case "Radiographic":
+   				$("#sub_picture_catagory1").html("<option value=\"XRAY\">XRAY</option><option value=\"MRI\">MRI</option><option value=\"Bone Scan\">Bone Scan</option><option value=\"CT Chest\">CT Chest</option><option value=\"CT\">CT</option>");
+   				break;
+   			case "Photograph":
+   				$("#sub_picture_catagory1").html("<option value=\"Pre-op\">Pre-op</option><option value=\"Intra-op\">Intra-op</option><option value=\"Post-op\">Post-op</option>");
+   				break;
+   		}
+   }
+   function select_sub_catagory_picture2()
+   {
+   		$("#sub_picture_catagory2").children().remove();
+   		switch($("#picture_catagory2").val())
+   		{	case "Radiographic":
+   				$("#sub_picture_catagory2").html("<option value=\"XRAY\">XRAY</option><option value=\"MRI\">MRI</option><option value=\"Bone Scan\">Bone Scan</option><option value=\"CT Chest\">CT Chest</option><option value=\"CT\">CT</option>");
+   				break;
+   			case "Photograph":
+   				$("#sub_picture_catagory2").html("<option value=\"Pre-op\">Pre-op</option><option value=\"Intra-op\">Intra-op</option><option value=\"Post-op\">Post-op</option>");
+   				break;
+   		}
+   }
+   function select_sub_catagory_picture3()
+   {
+   		$("#sub_picture_catagory3").children().remove();
+   		switch($("#picture_catagory3").val())
+   		{	case "Radiographic":
+   				$("#sub_picture_catagory3").html("<option value=\"XRAY\">XRAY</option><option value=\"MRI\">MRI</option><option value=\"Bone Scan\">Bone Scan</option><option value=\"CT Chest\">CT Chest</option><option value=\"CT\">CT</option>");
+   				break;
+   			case "Photograph":
+   				$("#sub_picture_catagory3").html("<option value=\"Pre-op\">Pre-op</option><option value=\"Intra-op\">Intra-op</option><option value=\"Post-op\">Post-op</option>");
+   				break;
+   		}
+   }
+   function select_sub_catagory_picture4()
+   {
+   		$("#sub_picture_catagory4").children().remove();
+   		switch($("#picture_catagory4").val())
+   		{	case "Radiographic":
+   				$("#sub_picture_catagory4").html("<option value=\"XRAY\">XRAY</option><option value=\"MRI\">MRI</option><option value=\"Bone Scan\">Bone Scan</option><option value=\"CT Chest\">CT Chest</option><option value=\"CT\">CT</option>");
+   				break;
+   			case "Photograph":
+   				$("#sub_picture_catagory4").html("<option value=\"Pre-op\">Pre-op</option><option value=\"Intra-op\">Intra-op</option><option value=\"Post-op\">Post-op</option>");
+   				break;
+   		}
+   }
+   function select_sub_catagory_picture5()
+   {
+   		$("#sub_picture_catagory5").children().remove();
+   		switch($("#picture_catagory5").val())
+   		{	case "Radiographic":
+   				$("#sub_picture_catagory5").html("<option value=\"XRAY\">XRAY</option><option value=\"MRI\">MRI</option><option value=\"Bone Scan\">Bone Scan</option><option value=\"CT Chest\">CT Chest</option><option value=\"CT\">CT</option>");
+   				break;
+   			case "Photograph":
+   				$("#sub_picture_catagory5").html("<option value=\"Pre-op\">Pre-op</option><option value=\"Intra-op\">Intra-op</option><option value=\"Post-op\">Post-op</option>");
+   				break;
+   		}
+   }
 
 	</script>
 

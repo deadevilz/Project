@@ -1,6 +1,13 @@
+<html>
+<head>
+<title>Upload</title>
+<meta http-equiv=Content-Type content="text/html; charset=utf-8">
+</head>
+<body>
+
 <?php
 	require('config.php');
-
+	
 	echo var_dump($_FILES);
 	if(isset($_POST['slideno']))
 	{
@@ -24,6 +31,25 @@
 		checkHN($hn);
 		checkName($name);
 
+
+		echo count($_FILES["file_picture"]["name"]);
+		for($i=0;$i<count($_FILES["file_picture"]["name"]);$i++)
+		{
+			if($_FILES["file_picture"]["name"][$i] != "")
+			{	$dir = $_POST["picture_catagory"][$i];
+				$sub_dir = $_POST["sub_picture_catagory"][$i];
+				$real_name = $_FILES["file_picture"]["name"][$i];
+				$saved_name = $hn."_".$_FILES["file_picture"]["name"][$i];
+				$size_file = $_FILES["file_picture"]["size"][$i];
+				move_uploaded_file($_FILES["file_picture"]["tmp_name"][$i],"../img/".$dir."/".$sub_dir."/".$saved_name);
+				$sql = "INSERT INTO `tumor_conference`.`picture_attachments` (`hn_user`, `saved_name`, `real_name`, `size`, `catagory_picture`, `sub_catagory_picture`)";
+				$sql.= "VALUES ( '$hn', '$saved_name', '$real_name', '$size_file', '$dir', '$sub_dir')";
+				$query = mysql_query($sql,$objConnect);
+				
+			}
+		}
+
+		
 
 		if($catagory=="other") $catagory = mysql_real_escape_string($_POST['catagory_other']);
 		if($sub_catagory=="other") $sub_catagory = mysql_real_escape_string($_POST['sub_catagory_other']);
@@ -67,3 +93,5 @@
 	}
 
 ?>
+</body>
+</html>
