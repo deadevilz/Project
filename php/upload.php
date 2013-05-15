@@ -19,10 +19,19 @@ echo "<table border='1'><tr>";
 		{	 echo "<tr>";		
 			 foreach($row as $cell)
 					echo "<td>$cell</td>";
+			echo "<td><input type='button' value='change' class='test' /></td>";
 			 echo "</tr>\n";
 		}
-	
-
 ?>
+<script type="text/javascript" src="../jQuery/jquery.js"></script>
+<script type="text/javascript">
+	$(".test").click(function (){
+		$(this).parent().parent().children().each(function(){
+			console.log($(this).text());
+		});
+		//for(var i=0;i<a.length;i++)
+			
+	});
+</script>
 </body>
 </html>
